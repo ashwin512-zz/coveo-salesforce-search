@@ -26,5 +26,9 @@
         "test",
         "tests",
         "index.html"
-    ]
+    ],
+    "repository": {
+      "type": "url",
+      "url": "https://help.salesforce.com/resource/coveosolutions__CoveoJsSearch"
+    }
 }
