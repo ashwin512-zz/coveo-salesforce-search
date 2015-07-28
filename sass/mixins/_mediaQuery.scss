@@ -1,0 +1,29 @@
+@mixin smallMobile {
+	@media only screen and (max-width : 640px) {
+		@content;
+	}
+}
+
+@mixin smallMobileLandscape {
+	@media (max-width: 480px) {
+		@content;
+	}
+}
+
+@mixin smallMobileLandscapeToPortraitTablet {
+	@media (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin tabletLandscapeToDesktop {
+	@media (min-width: 768px) and (max-width: 979px) {
+		@content;
+	}
+}
+
+@mixin largeDesktop {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}

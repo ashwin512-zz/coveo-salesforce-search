@@ -1,0 +1,52 @@
+<script id="LithiumThread">
+    <div class="coveo-lithium-result">
+      <div class="coveo-icon coveo-sprites-documentType-thread_x16"></div>
+      <div class="coveo-date"><%-dateTime(raw.sysdate)%></div>
+
+      <div class="coveo-lithium-header">
+        <span class="coveo-lithium-from">
+    From: <span class="CoveoFieldValue" data-field="@limessageauthor"></span>
+  </span>
+
+  <span class="coveo-lithium-to">
+    To: <span class="CoveoFieldValue" data-field="@liboardshorttitle"></span>
+  </span>
+</div>
+
+<div class="coveo-title">
+  <a class="CoveoResultLink"><%=title?highlight(title, titleHighlights):clickUri%></a>
+  <%= loadTemplate("DefaultQuickView") %>
+</div>
+
+<div class='coveo-excerpt'>
+  <%=highlight(excerpt, excerptHighlights)%>
+</div>
+
+<div class='CoveoResultFolding'
+    data-result-template-id="LithiumChildResult"
+    data-more-caption="ShowCompleteThread"
+    data-less-caption="ShowOnlyTopMatchingPosts"></div>
+</div>
+</script>
+
+<script id="LithiumChildResult">
+    <div class="coveo-date"><%-dateTime(raw.sysdate)%></div>
+
+    <div class="coveo-lithium-header">
+      <span class="coveo-lithium-from">
+    From: <span class="CoveoFieldValue" data-field="@limessageauthor"></span>
+  </span>
+</div>
+
+<div class='coveo-excerpt coveo-show-if-normal'>
+  <a class="CoveoResultLink">
+    <%=highlight(firstSentences, firstSentencesHighlights)%>
+  </a>
+</div>
+
+<div class='coveo-excerpt coveo-show-if-expanded'>
+  <a class="CoveoResultLink">
+    <%=raw.limessagebody%>
+  </a>
+</div>
+</script>

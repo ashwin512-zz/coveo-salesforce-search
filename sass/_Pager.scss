@@ -1,0 +1,86 @@
+.CoveoPager {
+  margin: 30px 0 30px 20px;
+  font-size: 12px;
+
+  ul {
+    padding: 0;
+  li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+
+    > a {
+      display: inline-block;
+      min-width: 30px;
+      padding: 7px 6px 6px 5px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      vertical-align: center;
+      color: $color-pager-text;
+      background: $color-pager-background;
+      border-left: 1px solid $color-pager-border;
+      border-top: 1px solid $color-pager-border;
+      border-bottom: 1px solid $color-pager-border;
+      height: 29px;
+      cursor: pointer;
+    }
+
+    &:first-child > a {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &:last-child > a {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-right: 1px solid $color-pager-border;
+    }
+
+    &:hover > a {
+      color: $color-pager-hover-text;
+      background: $color-pager-hover-background;
+      border-left: 1px solid $color-pager-border;
+      border-top: 1px solid $color-pager-hover-border;
+      border-bottom: 1px solid $color-pager-hover-border;
+    }
+
+    &:hover:first-child > a {
+      border-left: 1px solid $color-pager-hover-border;
+    }
+
+    &:hover:last-child > a {
+      border-right: 1px solid $color-pager-hover-border;
+    }
+
+    &.coveo-active > a {
+      color: $color-pager-active-text;
+      background: $color-pager-active-background;
+      border-left: 1px solid $color-pager-border;
+      border-top: 1px solid $color-pager-active-border;
+      border-bottom: 1px solid $color-pager-active-border;
+    }
+
+    &.coveo-active:first-child > a {
+      border-left: 1px solid $color-pager-active-border;
+    }
+
+    &.coveo-active:last-child > a {
+      border-right: 1px solid $color-pager-active-border;
+    }
+
+    &.coveo-previous > a > span {
+      @extend .coveo-sprites-pager-previous;
+      vertical-align: middle;
+    }
+
+    &.coveo-next > a > span {
+      @extend .coveo-sprites-pager-next;
+      vertical-align: middle;
+    }
+  }
+  }
+}

@@ -2,14 +2,10 @@
     "name": "coveo-salesforce-help",
     "version": "0.0.1",
     "main": [
-        "js/CoveoJsSearch.Dependencies.min.js",
-        "js/jsrender-1.0.pre.min.js",
-        "js/CoveoSearchForSalesforce.WithJsSearch.min.js",
-        "templates/generated.js",
-        "css/CoveoFullSearch.css",
-        "css/CoveoSearchForSalesforce.css"
+        "js/CoveoJsSearch.WithDependencies.js",
+        "css/CoveoFullSearch.css"
     ],
-    "homepage": "https://help.salesforce.com/resource/coveosolutions__CoveoJsSearch",
+    "homepage": "https://github.com/ashwin512/coveo-salesforce-search",
     "authors": [
         "Ashwin Reddy <ashwin.reddy@gmail.com>"
     ],
@@ -29,6 +25,6 @@
     ],
     "repository": {
       "type": "url",
-      "url": "https://help.salesforce.com/resource/coveosolutions__CoveoJsSearch"
+      "url": "https://github.com/ashwin512/coveo-salesforce-search"
     }
 }

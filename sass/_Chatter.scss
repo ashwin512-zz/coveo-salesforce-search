@@ -1,0 +1,26 @@
+.coveo-result-box
+{
+  margin-top: 5px;
+  background-color: #f7f7f7;
+}
+
+.coveo-result-likes
+{
+  display: inline;
+}
+
+.coveo-result-box-row
+{
+  margin: 5px;
+  margin-left: 10px;
+  padding: 3px;
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.coveo-result-box-row .coveo-result-box-icon
+{
+  margin-right: 10px;
+}

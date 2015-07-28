@@ -1,0 +1,17 @@
+.CoveoAttachToCase {
+    border: 1px solid #cccccc;
+    padding: 3px;
+    background-color: #f7f7f7;
+    font-size: 13px;
+    color: #8f8f8f;
+    border-radius: 3px;
+    line-height: 12px;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+      color: #39465D;
+      opacity: 0.8;
+    }
+}

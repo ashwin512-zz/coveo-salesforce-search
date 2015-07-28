@@ -1,0 +1,37 @@
+.CoveoErrorReport {
+    background-color: $color-error-report-background;
+    padding:10px;
+    .coveo-error-title{
+      margin-bottom: 30px;
+    }
+
+    .coveo-error-message{
+      margin-top:30px;
+      margin-right:30px;
+      margin-left:30px;
+      pre {
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+
+    .coveo-previous, .coveo-clear, .coveo-retry, .coveo-more-info{
+      color:$color-error-report-link;
+      padding:5px;
+      border-radius: 2px;
+
+      &:hover {
+        cursor:pointer;
+        color:$color-error-report-link-hover;
+      }
+    }
+}
+
+
+.coveo-error-report {
+  .CoveoErrorReport {
+    text-align:center;
+  }
+}
+
+

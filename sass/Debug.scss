@@ -1,0 +1,102 @@
+.CoveoDebug {
+}
+
+.coveo-debug {
+  @extend .coveo-modalBox.coveo-quick-view;
+
+  .coveo-body {
+    height: 89vh;
+  }
+
+  .coveo-highlight {
+    background-color: yellow;
+  }
+
+  .coveo-debug-search-input {
+    width: 200px;
+  }
+
+  .coveo-debug-search-box {
+    float: right;
+    .coveo-debug-title {
+      float: left;
+      margin: 0 10px 0 10px;
+    }
+    .coveo-debug-search-input {
+      margin-top: 3px;
+      float: right;
+    }
+  }
+
+  .coveo-text-selectable input {
+    border: none;
+    outline: 0;
+    font-size: 15px;
+    background-color: #E0E0E0;
+  }
+
+  .coveo-debug-checkbox {
+    margin-left: 5px;
+  }
+
+  .coveo-debug-duration-bar {
+    float: left;
+    height: 15px;
+    margin: 1px;
+  }
+
+  .coveo-debug-duration-name {
+    float: left;
+    margin-left: 5px;
+  }
+
+  .coveo-debug-duration-key {
+    display: inline;
+  }
+
+  .coveo-debug-duration-keyText {
+    float: left;
+    margin-left: 5px;
+  }
+
+  .coveo-debug-duration-color {
+    width: 3px;
+    margin: 1px;
+    height: 15px;
+    float: left;
+  }
+}
+
+.coveo-modalBox.coveo-debug {
+	> .coveo-wrapper {
+		overflow-y: scroll;
+        width: 75vw;
+	}
+}
+
+.coveo-debug-title {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px 0 5px 10px;
+}
+
+.coveo-debug-property-name, .coveo-debug-field-name, .coveo-debug-query-name, .coveo-debug-info-name, .coveo-debug-ranking-info-name {
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.coveo-debug-content {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #E0E0E0;
+  .coveo-icon {
+    padding: 0 5px 0 5px;
+  }
+  dt:hover, dd:hover {
+    cursor: pointer;
+  }
+}
+
+.coveo-debug-ranking-info {
+  white-space: pre;
+}

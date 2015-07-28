@@ -1,0 +1,62 @@
+<script id="EmailThread">
+    <div class="coveo-email-result">
+      <div class='coveo-email-result-top-result'>
+        <%= fromFileTypeToIcon() %>
+        <div class="coveo-date"><%-dateTime(raw.sysdate)%></div>
+
+        <div class="coveo-email-header">
+          <span class="coveo-email-from">
+    From: <%= email(raw.sysfrom) %>
+  </span>
+
+  <span class="coveo-email-to">
+    To: <%= email(raw.sysrecipients)%>
+  </span>
+</div>
+
+<div class="coveo-title">
+    <a class="CoveoResultLink"><%=title?highlight(title, titleHighlights):clickUri%></a>
+    <%= loadTemplate("DefaultQuickView") %>
+</div>
+
+<div class='coveo-excerpt'>
+  <%= highlight(excerpt, excerptHighlights)%>
+</div>
+
+<div class='CoveoResultAttachments'
+    data-result-template-id='EmailResultAttachment'></div>
+</div>
+
+  <div class='CoveoResultFolding'
+    data-result-template-id="EmailChildResult"
+    data-more-caption="ShowAllReplies"
+    data-less-caption="ShowOnlyMostRelevantReplies"></div>
+</div>
+</script>
+
+<script id="EmailChildResult">
+    <div class="coveo-date"><%-dateTime(raw.sysdate)%></div>
+
+    <div class="coveo-email-header">
+      <span class="coveo-email-from">
+        <%= email(raw.sysfrom, undefined, undefined, undefined, true) %>
+      </span>
+      <%= loadTemplate("DefaultQuickView") %>
+      </div>
+
+    <div class='coveo-excerpt'>
+      <a class="CoveoResultLink">
+        <%= highlight(firstSentences, firstSentencesHighlights)%>
+      </a>
+      </div>
+    <div class='CoveoResultAttachments' data-result-template-id='EmailResultAttachment'></div>
+</script>
+
+<script id='EmailResultAttachment'>
+    <div class='coveo-attachment-container'>
+      <%= fromFileTypeToIcon() %>
+      <a class="CoveoResultLink"><%= title || clickUri %></a>
+      <% if(Coveo.QueryUtils.hasThumbnail(obj)){ %> <span class='coveo-thumbnail-icon'><%= thumbnail() %></span><% } %>
+      <%= loadTemplate("DefaultQuickView") %>
+    </div>
+</script>

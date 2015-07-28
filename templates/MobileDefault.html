@@ -1,0 +1,29 @@
+<script id='MobileDefault'>
+  <div class='coveo-title'>
+    <div class='coveo-date'><%-dateTime(raw.sysdate)%></div>
+    <div class='coveo-icon objecttype <%-raw.objecttype%>'><%-raw.objecttype%></div>
+      <span class='CoveoFieldValue coveo-badge' data-field='@objecttype'></span>
+      <a class='CoveoResultLink' target="_blank"><%=title?highlight(title, titleHighlights):clickUri%></a>
+
+      <%= loadTemplate("MobileDefaultQuickView") %>
+  </div>
+
+  <div class='coveo-excerpt'>
+    <%=highlight(excerpt, excerptHighlights)%>
+  </div>
+
+  <div class='CoveoPrintableUri'></div>
+
+  <table class='CoveoFieldTable'>
+    <tr data-field='@sysauthor' data-caption='Author' />
+    <tr data-field='@sysconcepts' data-caption='Concepts' data-split-values='true' />
+  </table>
+</script>
+
+<script id="MobileDefaultQuickView">
+  <div class='CoveoQuickView' data-title="<%= attrEncode('<span class="coveo-icon objecttype '+raw.objecttype+'"></span>'+ Title) %>" data-template-id="MobileDefaultQuickViewContent">
+  </div>
+</script>
+<script id="MobileDefaultQuickViewContent">
+  <div class='CoveoQuickViewDocument' data-maximum-document-size='50000'></div>
+</script>

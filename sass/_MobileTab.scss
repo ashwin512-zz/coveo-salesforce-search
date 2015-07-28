@@ -1,0 +1,68 @@
+@import "MobileUtility";
+
+.CoveoTab {
+  font-size: 14px;
+  display: block;
+  color: #cccccc;
+  border-top: 1px solid $color-mobile-tab-section-border;
+  text-decoration: none;
+  padding: 0 12px;
+  height: 44px;
+  line-height: 44px;
+  background: $color-mobile-tab-section;
+  background-color: none;
+  background-image: none;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  .coveo-icon {
+    margin: 13px 12px 12px 0;
+  }
+
+  &:hover {
+    color: #cccccc;
+    text-decoration: none;
+  }
+
+  &.coveo-selected {
+    background: $color-mobile-tab-section;
+  }
+
+  &.coveo-selected:before {
+    content: "";
+    position: absolute;
+    font-weight: normal;
+    right: 20px;
+    top: 13px;
+    @extend .coveo-sprites-common-checkmark_selected-on_dark_bg;
+  }
+
+   &.coveo-selected:hover {
+    background: $color-mobile-tab-section;
+  }
+}
+
+.coveo-tab-header{
+  cursor: pointer;
+  text-align: right;
+  color: #cccccc;
+  float: right;
+  margin-top: 6px;
+  margin-right: 6px;
+}
+.coveo-logo-section{
+  height: 52px;
+  cursor:pointer;
+}
+
+.coveo-tab-section{
+  width: 260px;
+  z-index: 1000;
+  position:absolute;
+  left: -260px;
+  top: 0;
+  bottom: 0;
+  height:100%;
+  background: #242528;
+  white-space: nowrap;
+}

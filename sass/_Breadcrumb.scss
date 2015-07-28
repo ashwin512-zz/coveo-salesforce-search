@@ -1,0 +1,36 @@
+.CoveoBreadcrumb {
+  margin: 10px 0 24px 16px;
+
+  .item {
+    margin: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .coveo-clear-all {
+    @include coveo-generic-button-no-hover-effect;
+    float: right;
+    border-radius: 2px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    margin-top: -4px;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+    .coveo-icon {
+      margin-top: 6px;
+      @extend .coveo-sprites-common-clear;
+    }
+  }
+
+  .coveo-separator {
+    color: #000000;
+  }
+
+  &.coveo-small-display {
+    @include breadcrumb-small-display;
+  }
+}

@@ -1,0 +1,21 @@
+.CoveoHiddenQuery {
+  margin: 8px 0 16px 20px;
+  background-color: $color-gray-background;
+  padding: 10px;
+  
+  .coveo-remove {
+    float: right;
+  	margin-left: 5px;
+  	color: $color-result-clickable;
+  	text-decoration: none;
+  	&:hover {
+  	  text-decoration: none;
+  	  color: $color-result-clickable-hover;
+  	}
+  }
+  
+  h2 {
+    font-size: 16px;
+    display: inline;
+  }
+}

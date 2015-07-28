@@ -1,0 +1,136 @@
+$max-width: 100%;
+$grid-columns: 24;
+$gutter: 0em;
+$page-width: 1000px;
+
+$border-box-sizing: false;
+@import "neat/neat";
+
+.CoveoSearchInterface {
+  min-height: 100%;
+  * {
+    @include box-sizing(border-box);
+  }
+
+  @include outer-container;
+  $mobile: new-breakpoint(max-width 600px 4);
+
+  position: relative;
+  margin: 0;
+  background-color: $color-main-background;
+
+  font-family: $arimo, $helvetica;
+  font-size: 13px;
+
+  .coveo-tab-section {
+    @include row();
+    @include span-columns(24);
+
+    padding: 0px 10px;
+    background-color: $color-tab-background;
+    @include omega();
+  }
+
+  .coveo-search-section {
+    @include row();
+    @include span-columns(24);
+    @include omega();
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+
+    .coveo-logo-column {
+      @include span-columns(7 of 24);
+      height: 63px;
+      float: left;
+      max-width: $page-width * 7 / 24;
+      background-color: $color-facet-background;
+      border-right: 1px solid $color-result-border;
+      @include media($mobile) {
+        display: none;
+      }
+      .coveo-logo {
+        margin: 13px 20px 13px 15px;
+      }
+    }
+
+    .coveo-searchBox-column {
+      height: 63px;
+      padding: 12px 15px;
+      overflow:hidden;
+      .coveo-search-section-wrapper {
+	      max-width: 685px;
+        .CoveoSearchBox {
+          max-width: $page-width * 17 / 24 - 30;
+          .CoveoSearchButton {
+            min-width: 70px;
+          }
+        }
+	    }
+    }
+
+    .coveo-tools {
+      float: right;
+      margin-left: 20px;
+    }
+  }
+
+  .coveo-results-section {
+    @include span-columns(24);
+    @include row();
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+
+    max-width: $page-width;
+
+    .coveo-facet-column {
+      @include span-columns(7 of 24);
+
+      @include media($mobile) {
+        @include span-columns(4 of 4);
+        max-width: 100%;
+      }
+
+      padding: 5px 15px;
+      background-color: $color-facet-background;
+      border-right: 1px solid $color-result-border;
+    }
+
+    .coveo-results-column {
+      background-color: $color-main-background;
+      @include span-columns(17 of 24);
+      padding: 10px 10px 10px 15px;
+
+      @include media($mobile) {
+        @include span-columns(4 of 4);
+      }
+  
+      .coveo-results-header {
+        padding: 10px 10px 10px 10px;
+        background-color: $color-gray-background;
+        min-height: 35px;
+        @include span-columns(24);
+        float:none;
+        .coveo-summary-section {
+          float:left;
+        }
+        .coveo-sort-section {
+          float:right;
+        }
+      }
+    }
+
+    // The following rules ensure that both columns background extext-align
+    // to the full height of the parent element. Tables would have yielded
+    // the same results, but they can't be made responsive...
+    overflow: hidden;
+
+    .coveo-facet-column, .coveo-results-column {
+      padding-bottom: 31416px;
+      margin-bottom: -31416px;
+    }
+  }
+}

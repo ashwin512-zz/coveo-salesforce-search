@@ -1,0 +1,83 @@
+.CoveoSettings {
+  @include coveo-generic-button;
+  float: right;
+  padding: 9px;
+  margin: 0 0 0 10px;
+  border-radius: 4px;
+  width: 38px;
+  height: 38px;
+
+  .coveo-settings-icon {
+    @extend .coveo-sprites-common-settings;
+  }
+}
+
+.coveo-advanced-menu {
+    position:absolute;
+    background:$color-gray-background;
+    border: 1px solid #efefef;
+    box-shadow: $drop-down-box-shadow;
+    min-width: 160px;
+
+    &:before {
+      content: "";
+      position:absolute;
+      top: -14px;
+      right: 10px;
+      @include triangle(12px, $color-medium-dark-gray, up);
+    }
+
+    .coveo-section{
+      clear:both;
+    }
+
+    .coveo-section{
+      clear:both;
+
+      .coveo-items{
+        background: white;
+        overflow:hidden;
+
+        .coveo-item{
+          padding:4px 8px 4px 8px;
+          margin: 4px 0px 4px 0px;
+          white-space: nowrap;
+          cursor:pointer;
+
+          &.coveo-selected {
+            font-weight: bold;
+          }
+
+          &:hover {
+            background:#d7ebff;
+          }
+        }
+     }
+
+    .coveo-icon{
+      margin:7px 10px 0px 10px;
+    }
+
+    &.coveo-share-query {
+      .coveo-icon {
+        @extend .coveo-sprites-common-menu_shareresult;
+        float:left;
+      }
+    }
+
+    &.coveo-preference-panel {
+      .coveo-icon {
+        @extend .coveo-sprites-preferencesPanel-menu_preferences;
+        float:left;
+      }
+    }
+
+    &.coveo-authentication-provider {
+      .coveo-icon {
+        @extend .coveo-sprites-common-menu_reauthenticate;
+        float:left;
+      }
+    }
+  }
+
+}

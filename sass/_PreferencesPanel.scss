@@ -1,0 +1,52 @@
+.CoveoPreferencesPanel {
+	height: 0px;
+	overflow: hidden;
+	position: relative;
+	margin-left:1px;
+
+	label {
+		vertical-align: middle;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&.coveo-active {
+		height: auto;
+	}
+
+	.coveo-close {
+		@include coveo-preference-panel-button;
+		border:none;
+		right: 5px;
+		.coveo-icon {
+			@extend .coveo-sprites-common-clear;
+			top:0px;
+		}
+	}
+
+	.coveo-save {
+		@extend .coveo-preference-panel-button;
+		right: 40px;
+		.coveo-icon {
+			@extend .coveo-sprites-menu-menu_saveoption;
+		}
+	}
+
+	& > .coveo-title {
+		font-size: 18px;
+		display: inline-block;
+	}
+
+	.CoveoResultsPreferences, .CoveoResultsFiltersPreferences {
+		@include coveo-preference-panel-item;
+	}
+}
+
+.CoveoPreferencePanelItem {
+	@include coveo-preference-panel-item;
+}
+
+.coveo-results-filter-preferences-breadcrumb {
+	@include coveo-facet-breadcrumb;
+}

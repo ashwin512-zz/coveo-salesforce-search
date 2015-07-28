@@ -1,0 +1,36 @@
+<script id='Default'>
+    <div class='coveo-icon objecttype <%-raw.objecttype%>'><%-raw.objecttype%></div>
+
+    <div class='coveo-date'><%-dateTime(raw.sysdate)%></div>
+
+    <div class='coveo-title'>
+      <span class='CoveoFieldValue coveo-badge' data-field='@objecttype'></span>
+      <a class='CoveoResultLink' target="_blank"><%=title?highlight(title, titleHighlights):clickUri%></a>
+
+      <%= loadTemplate("DefaultQuickView") %>
+    </div>
+
+    <div class='coveo-excerpt'>
+      <%=highlight(excerpt, excerptHighlights)%>
+    </div>
+
+    <div class='CoveoPrintableUri'></div>
+
+    <table class='CoveoFieldTable'>
+      <tr data-field='@sysauthor' data-caption='Author' />
+    </table>
+</script>
+<script id="DefaultQuickView">
+    <div class='CoveoQuickView' data-title="<%= attrEncode('<span class="coveo-icon objecttype '+raw.objecttype+'"></span>'+ Title) %>" data-fixed='true' data-template-id="DefaultQuickViewContent">
+    </div>
+</script>
+
+<script id="DefaultQuickViewContent">
+    <div class='coveo-quick-view-header'>
+      <table class='CoveoFieldTable'>
+        <tr data-field='@sysdate' data-caption='Date' data-helper='dateTime' />
+        <tr data-field='@objecttype' data-caption='Type' />
+      </table>
+    </div>
+    <div class='CoveoQuickViewDocument'></div>
+</script>

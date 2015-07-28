@@ -1,0 +1,14 @@
+.CoveoNotifications {
+  padding: 10px;
+  background-color: $color-notifications-background;
+  
+  a {
+    color: $color-notifications-link;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

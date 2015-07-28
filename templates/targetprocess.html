@@ -1,0 +1,24 @@
+<script id='TargetProcessTemplate'>
+    <div class="CoveoResult">
+		<div class='coveo-icon targetprocessicon'></div>
+        <div class='coveo-date'><%-dateTime(raw.sysdate, {predefinedFormat: "dd/MM/yyyy", includeTimeIfThisWeek : false})%></div>
+		<div class="coveo-title">
+			<span class="CoveoFieldValue coveo-badge <%-raw.sysfiletype%>" data-field="@sysfiletype"></span>
+			<span class="TpId"><%-raw.tpid%></span>
+			<a class="CoveoResultLink" target="_blank"><%=title?highlight(title, titleHighlights):clickUri%></a>
+      <%= loadTemplate("DefaultQuickView", hasHtmlVersion) %>
+	    </div>
+		<div class="coveo-excerpt">
+		    <%= highlight(excerpt, excerptHighlights)%>
+	    </div>
+		<table class="CoveoFieldTable">
+			<tr data-field="@state" data-caption="State:" />
+			<tr data-field="@assignee" data-caption="Assignee:" />
+			<tr data-field="@owner" data-caption="Owner:" />
+			<tr data-field="@sprint" data-caption="Sprint:" />
+			<tr data-field="@project" data-caption="Project:" />
+			<tr data-field="@priority" data-caption="Priority:" />
+		</table>
+		<div class='CoveoPrintableUri'></div>
+	</div>
+</script>

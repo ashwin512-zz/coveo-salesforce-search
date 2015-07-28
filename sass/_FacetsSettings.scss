@@ -1,0 +1,112 @@
+.coveo-settings-popup {
+  position:absolute;
+  background:$color-facet-setting-background;
+  overflow:hidden;
+  border: 1px solid #efefef;
+  box-shadow: $drop-down-box-shadow;
+  z-index: 1;
+
+  .coveo-section{
+    clear:both;
+  }
+
+  .coveo-section {
+    clear:both;
+
+    .coveo-items {
+      padding:10px 0;
+      background: white;
+      overflow:hidden;
+
+      .coveo-item {
+        line-height: 26px;
+        height:26px;
+        white-space: nowrap;
+        padding: 0 32px 0 16px;
+        cursor:pointer;
+        -moz-padding-end: 70px;
+
+        &.coveo-selected {
+          font-weight: bold;
+        }
+
+        &:hover {
+          background:#d7ebff;
+        }
+      }
+    }
+
+    &.coveo-disabled {
+      .coveo-items {
+        .coveo-item {
+          cursor: default;
+          opacity: 0.5;
+          &:hover{
+            background:white;
+          }
+        }
+      }
+    }
+
+    .coveo-icon{
+      margin:15px;
+    }
+
+    &.coveo-sort {
+      .coveo-icon {
+        @extend .coveo-sprites-menu-menu_sortby;
+        float:left;
+      }
+    }
+    &.coveo-direction {
+      .coveo-items {
+        border-top: 1px solid #DDDDDD;
+      }
+      .coveo-icon {
+        @extend .coveo-sprites-menu-menu_sortdirection;
+        float:left;
+      }
+    }
+
+    &.coveo-save-state {
+      .coveo-items {
+        border-top: 1px solid #DDDDDD;
+      }
+      .coveo-icon {
+        @extend .coveo-sprites-menu-menu_saveoption;
+        float:left;
+      }
+    }
+
+    &.coveo-clear-state {
+      .coveo-items {
+        border-top: 1px solid #DDDDDD;
+      }
+      .coveo-icon {
+        @extend .coveo-sprites-facet-clear_facet_state;
+        float:left;
+      }
+    }
+
+    &.coveo-hide, &.coveo-show {
+      .coveo-items {
+        border-top: 1px solid #DDDDDD; 
+      }
+    }
+
+    &.coveo-hide {
+      .coveo-icon {
+        @extend .coveo-sprites-facet-clear_facet;
+        float:left;
+      }
+    }
+    
+    &.coveo-show {
+      .coveo-icon {
+        @extend .coveo-sprites-facet-show_facet;
+        float:left;
+      }
+    }
+    
+  }
+}

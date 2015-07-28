@@ -1,0 +1,68 @@
+@import "Color";
+@import "icons";
+@import "sprites";
+
+@import "mixins";
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200 / 100), only screen and (min-device-pixel-ratio: 2) {
+	@import "retina";
+}
+
+@import "QuickView";
+@import "AuthenticationProvider";
+@import "Breadcrumb";
+@import "SearchModalBox";
+@import "CurrentTab";
+@import "DidYouMean";
+@import "Chatter";
+@import "Email";
+@import "People";
+@import "ErrorReport";
+@import "Facets";
+@import "FacetsSettings";
+@import "Lithium";
+@import "HiddenQuery";
+@import "Loader";
+@import "Tab";
+@import "OmniBox";
+@import "Pager";
+@import "PrintableUri";
+@import "QueryBox";
+@import "QueryDuration";
+@import "QuerySummary";
+@import "Result";
+@import "ResultAttachments";
+@import "ResultFolding";
+@import "ResultFrame";
+@import "ResultLink";
+@import "ResultList";
+@import "ImageResultList";
+@import "SearchBox";
+@import "SearchButton";
+@import "SearchInterface";
+@import "Settings";
+@import "ShareQuery";
+@import "Sort";
+@import "Coveo";
+@import "Debug";
+@import "TabGroup";
+@import "Suggestions";
+@import "TopFieldSuggestions";
+@import "TopAnalyticsSuggestions";
+@import "Slider";
+@import "EmailActions";
+@import "PreferencesPanel";
+@import "ResultsFiltersPreferences";
+@import "ResultTagging";
+@import "OmniBoxResultList";
+@import "HierarchicalFacet";
+@import "ModalBox";
+@import "Salesforce";
+@import "SalesforceChatter";
+@import "Notifications";
+@import "UserActions";
+@import "AttachToCase";
+
+.coveo-clear {
+  clear: both;
+}

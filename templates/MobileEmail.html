@@ -1,0 +1,87 @@
+<script id="MobileEmailThread">
+    <div class="coveo-email-result">
+      <div class="coveo-email-header">
+        <div class="coveo-email-from">
+          <span class="coveo-icon coveo-sprites-documentType-mail"></span>
+    From: <span class="CoveoFieldValue" data-field="@sysfrom" data-helper="email" data-html-value="true"></span>
+  </div>
+  <div class="coveo-date"><%-date(raw.sysdate, {predefinedFormat: "MMM d"})%></div>
+  <div class="coveo-email-to">
+    To: <span class="CoveoFieldValue" data-field="@sysrecipients" data-helper="email" data-html-value="true"></span>
+  </div>
+  <span class="coveo-title">
+
+    <% if (hasHtmlVersion) { %>
+      <a class="CoveoResultLink" data-open-quickview="true"><%=title?highlight(title, titleHighlights):clickUri%></a>
+      <%= loadTemplate("MobileQuickViewEmail") %>
+    <% } else { %>
+      <a class="CoveoResultLink"><%=title?highlight(title, titleHighlights):clickUri%></a>
+    <% } %>
+  </span>
+</div>
+
+<div class='coveo-excerpt'>
+  <%= highlight(excerpt, excerptHighlights)%>
+</div>
+
+<div class='CoveoResultAttachments'
+    data-result-template-id='MobileEmailResultAttachment'></div>
+
+  <div class='CoveoResultFolding'
+    data-result-template-id="MobileEmailChildResult"
+    data-normal-caption="MostRelevantReplies"
+    data-more-caption="ShowAllConversation"
+    data-less-caption="ShowOnlyMostRelevantReplies"></div>
+</div>
+</script>
+
+<script id="MobileEmailChildResult">
+    <div class="coveo-email-header">
+      <span class="coveo-email-from">
+        <span class="CoveoFieldValue" data-field="@sysfrom" data-helper="email" data-html-value="true"></span>
+      </span>
+    </div>
+    <div class='coveo-excerpt'>
+      <% if(hasHtmlVersion) { %>
+        <a class="CoveoResultLink" data-open-quickview="true"><%= highlight(firstSentences, firstSentencesHighlights)%></a>
+        <%= loadTemplate("MobileQuickViewEmail") %>
+      <% } else { %>
+        <a class="CoveoResultLink"><%= highlight(firstSentences, firstSentencesHighlights)%></a>
+      <% } %>
+    </div>
+    <div class='CoveoResultAttachments' data-result-template-id='MobileEmailResultAttachment'></div>
+</script>
+
+<script id="MobileQuickViewEmail">
+    <div class='CoveoQuickView' data-title="<%= attrEncode('<span class="coveo-icon objecttype '+raw.objecttype+'"></span>'+ Title) %>" data-template-id="MobileQuickViewEmailContent">
+    </div>
+</script>
+
+<script id="MobileQuickViewEmailContent">
+    <div class='coveo-quick-view-header coveo-quick-view-header-mobile-email'>
+      <div class="coveo-date"><%-dateTime(raw.sysdate)%></div>
+      <div class="coveo-email-from">
+    From: <span class="CoveoFieldValue" data-field="@sysfrom" data-helper="email" data-html-value="true"></span>
+  </div>
+
+  <div class="coveo-email-to">
+    To: <span class="CoveoFieldValue" data-field="@sysrecipients" data-helper="email" data-html-value="true"></span>
+  </div>
+</div>
+<div class="CoveoEmailActions"></div>
+<div class='CoveoQuickViewDocument'></div>
+</script>
+
+<script id='MobileEmailResultAttachment'>
+    <% if(Coveo.QueryUtils.hasThumbnail(obj) || hasHtmlVersion ) { %>
+      <div class='coveo-attachment-container'>
+        <% if(hasHtmlVersion) { %>
+          <%= fromFileTypeToIcon() %>
+          <a class="CoveoResultLink" data-open-quickview="true"><%= title || clickUri %></a>
+          <%= loadTemplate("MobileQuickViewEmail") %>
+        <% } else if(Coveo.QueryUtils.hasThumbnail(obj)) { %>
+          <%= thumbnail() %>
+        <% } %>
+      </div>
+    <% } %>
+</script>

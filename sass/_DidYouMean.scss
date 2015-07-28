@@ -1,0 +1,38 @@
+.CoveoSearchInterface {
+  .CoveoDidYouMean {
+    padding: 10px;
+    background-color: $color-did-you-mean-background;
+
+    .coveo-highlight {
+      color: $color-result-clickable;
+      font-weight: normal;
+    }
+
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .coveo-word-correction {
+      color: $color-result-clickable;
+      font-weight: bold;
+    }
+
+    .coveo-no-results-for {
+      font-size: 16px;
+      .coveo-highlight {
+        font-weight: bold;
+      }
+    }
+
+    .coveo-automatic-correct {
+      font-size: 14px;
+    }
+
+    .coveo-did-you-mean-suggestion {
+      font-size: 14px;
+    }
+  }
+}

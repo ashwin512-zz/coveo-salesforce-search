@@ -1,0 +1,233 @@
+.CoveoQuickView {
+  display:inline-block;
+
+  .coveo-icon-for-quickview {
+    border: 1px solid #cccccc;
+    padding: 3px;
+    background-color: $color-gray-background;
+    font-size: 10px;
+    color: #8f8f8f;
+    border-radius: 3px;
+    line-height: 12px;
+    &:hover {
+      cursor:pointer;
+      background-color: white;
+    }
+  }
+}
+
+.CoveoQuickViewDocument {
+  overflow: hidden;
+}
+
+.coveo-quickview-header {
+  .coveo-term * {
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6d6d6;
+
+  .coveo-term {
+    margin-left: 10px;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+
+    border-radius: 5px;
+    border: 2px solid;
+
+    .coveo-term-down-arrow {
+      display: inline-block;
+      padding: 5px;
+      height: 26px;
+      position: relative;
+      width: 20px;
+      border-right: 2px solid;
+      .coveo-term-down-arrow-icon {
+        position: absolute;
+        top: 11px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
+      }
+    }
+    .coveo-term-up-arrow {
+      display: inline-block;
+      padding: 5px;
+      height: 26px;
+      position: relative;
+      width: 20px;
+      .coveo-term-up-arrow-icon {
+        position: absolute;
+        top: 11px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid black;
+      }
+    }
+    .coveo-term-name {
+      font-size: 14px;
+      padding: 5px 0;
+      margin-left: 5px;
+    }
+  }
+}
+
+.coveo-modalBox.coveo-quick-view {
+  > .coveo-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position:relative;
+
+    .coveo-quick-view-header{
+      padding: 10px;
+    }
+
+    > .coveo-title {
+
+      cursor: auto;
+
+      .coveo-quick-view-right-header{
+        float: right;
+        width: 200px;
+        text-align: right;
+      }
+
+      .coveo-quick-view-icon{
+        margin-right: 10px;
+        margin-top: 3px;
+        float: left;
+      }
+
+      .coveo-pop-up-reminder{
+        color: #0066cc;
+        font-size: 16px;
+        text-align: left;
+        position: absolute;
+        left: 40px;
+        right: 210px;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .coveo-quick-view-time{
+        font-size: 12px;
+        color:#b4b4b4;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+
+      .coveo-close-button{
+        @include coveo-generic-button-no-border;
+        position: relative;
+        left: auto;
+        margin-left: 10px;
+
+        .coveo-icon{
+          vertical-align: middle;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    > .coveo-body {
+      position:absolute;
+      top:40px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 0px 10px 0px;
+      overflow-y: hidden;
+
+      > .coveo-title {
+        .coveo-icon {
+          margin-right: 5px;
+        }
+        padding-bottom: 10px;
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: black;
+      }
+    }
+  }
+}
+
+.coveo-quickview-header {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.coveo-iframeWrapper {
+    overflow: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling:touch;
+    width: 100%;
+    height: 100%;
+}
+
+.coveo-iframeWrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    vertical-align: top;
+    position: absolute;
+}
+
+@media (max-width: 360px){
+  .coveo-modalBox.coveo-quick-view {
+    > .coveo-wrapper {
+      > .coveo-title {
+
+        .coveo-close-button{
+          float: right;
+        }
+
+        .coveo-quick-view-right-header{
+          width: 40px;
+        }
+
+        .coveo-pop-up-reminder{
+          right: 50px;
+        }
+
+        .coveo-quick-view-time{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin QuickViewContainer($nested:'&'){
+  #{$nested} {
+    .CoveoQuickView {
+      visibility: hidden !important;
+    }
+  }
+  &:hover {
+    #{$nested} {
+      .CoveoQuickView {
+        visibility: visible !important;
+      }
+    }
+  }
+}

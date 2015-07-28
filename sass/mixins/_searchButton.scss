@@ -1,0 +1,42 @@
+@mixin coveo-search-button {
+  color: white;
+  background: $color-search-button-hover;
+  border: 1px solid $color-search-button-border;
+  border-radius: 4px;
+  padding: 5px 8px 9px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 10px 18px 9px;
+
+  &:hover {
+    background: $color-search-button-hover;
+  }
+
+  & > .coveo-icon {
+    @extend .coveo-sprites-searchButton-searchbutton;
+  }
+}
+
+.coveo-executing-query .CoveoSearchButton > .coveo-icon {
+  @extend .coveo-sprites-searchButton-spin;
+  @include animation-name(coveo-spin);
+  @include animation-timing-function(linear);
+  @include animation-duration(1s);
+  @include animation-iteration-count(infinite);
+}
+
+.ie8or9 .coveo-executing-query .CoveoSearchButton > .coveo-icon {
+  @extend .coveo-sprites-searchButton-searchbutton;
+}
+
+@include keyframes(coveo-spin) {
+  from {
+    @include transform(rotate(0deg));
+  }
+
+  to {
+    @include transform(rotate(360deg));
+  }
+}

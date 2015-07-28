@@ -1,0 +1,39 @@
+<script id='Salesforce'>
+    <div class="coveo-icon objecttype <%-raw.objecttype%>"><%-raw.objecttype%></div>
+
+    <div class="coveo-date">
+      <% if (raw.sfclosedate) { %>
+        <%-closeDateToQuarter(raw.sfclosedate)%>
+      <% } else { %>
+        <%-dateTime(raw.sysdate)%>
+      <% } %>
+    </div>
+
+    <div class="coveo-title">
+      <span class="CoveoFieldValue coveo-badge" data-field="@objecttype"></span>
+      <a class="CoveoResultLink" target="_blank"><%=title?highlight(title, titleHighlights):clickUri%></a>
+      <%= loadTemplate("DefaultQuickView") %>
+    </div>
+
+    <table class="CoveoFieldTable">
+      <tr data-field="@sfaccountname" data-caption="Account" />
+      <tr data-field="@sfownername" data-caption="Owner" />
+
+      <tr data-field="@sfopportunityamountconverted" data-caption="Total" data-helper="currency" />
+      <tr data-field="@sfopportunitylicensingstotalcconverted" data-caption="License" data-helper="currency" />
+      <tr data-field="@sfopportunityamountsupportcconverted" data-caption="Support" data-helper="currency" />
+      <tr data-field="@sfopportunityconsultingstotalcconverted" data-caption="PS" data-helper="currency" />
+      <tr data-field="@sfopportunitystagename" data-caption="Stage" />
+      <tr data-field="@sfopportunitydealtypec" data-caption="Deal Type" />
+      <tr data-field="@sfopportunitycompetitionc" data-caption="Competition" data-split-values="true" />
+      <tr data-field="@sfibdusername" data-caption="ISR" />
+      <tr data-field="@sfopportunityregionc" data-caption="Region" />
+
+      <tr data-field="@sfleadsource" data-caption="Lead Source" />
+      <tr data-field="@sfleadstatus" data-caption="Lead status" />
+
+      <tr data-field="@sysworktitle" data-caption="Work title" />
+      <tr data-field="@sfemail" data-caption="Email" data-helper="email" data-html-value="true" />
+      <tr data-field="@sfcontactphone" data-caption="Phone" />
+    </table>
+</script>

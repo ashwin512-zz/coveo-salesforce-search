@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coveo Search</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0">
+
+    <script src="js/d3.min.js"></script>
+    <script src="js/CoveoJsSearch.Dependencies.js"></script>
+    <script src="js/CoveoJsSearch.js"></script>
+    <script src='templates/generated.js'></script>
+    <link rel="stylesheet" href="css/CoveoFullSearch.css" />
+
+    <script type="text/javascript">
+        $(function () {
+            Coveo.Rest.SearchEndpoint.configureSampleEndpoint();
+
+            /*
+
+            // Use this code to use a cloud index
+            Coveo.Rest.SearchEndpoint.configureCloudEndpoint('OrganizationName');
+
+            // Use this code to use an on-premise index
+            Coveo.Rest.SearchEndpoint.configureOnPremiseEndpoint('http://server:8080/Coveo/Rest');
+
+            // Use this code to use a custom endpoint
+            Coveo.Rest.SearchEndpoint.endpoints["default"] = new Coveo.Rest.SearchEndpoint({
+              restUri: 'http://server:8080/Coveo/Rest'
+            });
+
+            */
+
+            $('#search').coveo('init');
+        });
+    </script>
+</head>
+
+<body id="search" class="CoveoSearchInterface" data-enable-history="true">
+    <div class="CoveoFolding"
+         data-field="@litopicurl"
+         data-expand-expression="@objecttype==Message"
+         data-rearrange="date ascending"
+         data-tab="Lithium">
+    </div>
+
+    <div class='CoveoFolding'
+         data-field='@sysconversationsubject'
+         data-tab='Email,All'
+         data-parent-field='@syscontainsattachment'
+         data-child-field='@systopparentid'
+         data-range='0'></div>
+
+    <span class="CoveoTopFieldSuggestions"
+          data-field="@limessageauthor"
+          data-header-title="Suggested Authors"
+          data-tab="Lithium"></span>
+
+    <div class="coveo-tab-section">
+        <a class="CoveoTab"
+           data-id="All"
+           data-caption="All"
+           data-icon="coveo-sprites-documentType-all-content"></a>
+
+        <a class="CoveoTab"
+           data-id="Lithium"
+           data-caption="Lithium"
+           data-icon="coveo-sprites-documentType-lithium"
+           data-expression='@litopicid @objecttype=="Message"'></a>
+
+        <a class="CoveoTab"
+           data-id="Email"
+           data-caption="Email"
+           data-icon="coveo-sprites-documentType-mail"
+           data-expression='@sysmailbox'></a>
+    </div>
+
+    <div class="coveo-search-section">
+        <div class="coveo-logo-column">
+            <div class="coveo-logo"></div>
+        </div>
+        <div class="coveo-searchBox-column">
+            <div class="coveo-search-section-wrapper">
+                <div class="CoveoSettings" data-include-in-menu=".CoveoShareQuery,.CoveoPreferencesPanel"></div>
+                <div class="CoveoSearchBox" data-activate-omnibox="true"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="coveo-results-section">
+        <div class="coveo-facet-column">
+            <div class="CoveoFacetRange" data-title="Relative date distribution" data-field="@sysdate" data-date-field='true' data-range-slider='true' data-slider-graph-steps='20' data-slider-start='2007/12/31' data-slider-end='2014/12/31'></div>
+            <div class="CoveoFacet" data-title="Type" data-field="@objecttype" data-allow-toggling-operator="true" data-show-icon="true" data-tab="All"></div>
+            <div data-tab="Lithium">
+                <div class="CoveoFacet" data-title="Category" data-field="@licategoryshorttitle"></div>
+                <div class="CoveoFacet" data-title="Board" data-field="@liboardshorttitle"></div>
+                <div class="CoveoFacet" data-title="Author" data-field="@sysauthor"></div>
+                <div class="CoveoFacet" data-title="Location" data-field="@liprofilelocation"></div>
+                <div class="CoveoFacet" data-title="Concepts" data-field="@sysconcepts" data-is-multi-value-field="true"></div>
+            </div>
+
+            <div data-tab="Email">
+                <div class="CoveoFacet" data-title="Mailbox" data-field="@sysmailbox"></div>
+                <div class="CoveoFacet" data-title="From" data-field="@sysfrom"></div>
+                <div class="CoveoFacet" data-title="To" data-field="@systo"></div>
+                <div class="CoveoFacet" data-title="File Type" data-field="@sysfiletype"></div>
+                <div class="CoveoFacet" data-title="Concepts" data-field="@sysconcepts" data-is-multi-value-field="true"></div>
+            </div>
+        </div>
+
+        <div class="coveo-results-column">
+            <div class="CoveoShareQuery"></div>
+            <div class="CoveoPreferencesPanel">
+                <div class="CoveoResultsPreferences"></div>
+                <div class="CoveoResultsFiltersPreferences"></div>
+            </div>
+            <div class="CoveoBreadcrumb"></div>
+
+            <div class="coveo-results-header">
+                <div class="coveo-summary-section">
+                    <span class="CoveoQuerySummary"></span>
+                    <span class="CoveoQueryDuration"></span>
+                </div>
+                <div class="coveo-sort-section">
+                    <span class="CoveoSort" data-sort-criteria="relevancy">Relevance</span>
+                    <span class="CoveoSort" data-sort-criteria="date descending,date ascending">Date</span>
+                </div>
+                <div class='coveo-clear'></div>
+            </div>
+
+            <div class="CoveoHiddenQuery"></div>
+            <div class="CoveoDidYouMean"></div>
+            <div class="CoveoErrorReport" data-pop-up='false'></div>
+
+            <div class="CoveoResultList" data-wait-animation="fade">
+                <!--
+                  By default, templates are loaded from a JavaScript file containing pre-built Underscore
+                  templates from the html files in the 'templates' subfolder. You can regenerate the file
+                  using the provided Python script.
+
+                  If you prefer, you can put your templates directly inside the script tag below.
+
+                  More information is available here: https://developers.coveo.com/display/JsSearch/Home.
+                -->
+                <script class="result-template" type="text/x-underscore-template">
+                    <%=
+                    loadTemplates({
+                    "LithiumThread" : raw.sourcetype == 'Lithium' && raw.objecttype == 'Message',
+                    "EmailThread" : raw.sysmailbox != undefined,
+                    "Default" : "default"
+                    })
+                    %>
+                </script>
+            </div>
+            <div class="CoveoPager"></div>
+        </div>
+    </div>
+</body>
+</html>
