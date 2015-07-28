@@ -1,6 +1,6 @@
 {
     "name": "coveo-salesforce-help",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": [
         "js/CoveoJsSearch.WithDependencies.js",
         "css/CoveoFullSearch.css"
