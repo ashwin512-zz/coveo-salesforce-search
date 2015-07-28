@@ -1,5 +1,5 @@
 {
-    "name": "coveo-salesforce-help",
+    "name": "coveo-search-salesforce",
     "version": "0.0.2",
     "main": [
         "js/CoveoJsSearch.WithDependencies.js",
